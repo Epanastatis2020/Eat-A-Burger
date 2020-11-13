@@ -1,0 +1,29 @@
+<div class="conatiner-sm">
+    <div class="row header">
+        <div class="col-sm-12">
+            <img src="/assets/images/burger.jpg" class="burgerPic">
+            <h1>Eat-A-Burger</h1>
+        </div>
+    </div>
+    <div class="row">
+        {{!-- Empty div for alingnment--}}
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <ol>
+                {{#each burgers}}
+                <li>{{ burger_name }}</li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        {{!-- Empty div for alignment --}}
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <input class="form-control form-control-lg" type="text" placeholder="Enter Burger Name...">
+        </div>
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-primary submit-btn">Submit</button>
+        </div>
+    </div>
+</div>
