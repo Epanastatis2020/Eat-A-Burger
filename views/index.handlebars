@@ -1,29 +1,79 @@
-<div class="conatiner-sm">
-    <div class="row header">
-        <div class="col-sm-12">
-            <img src="/assets/images/burger.jpg" class="burgerPic">
-            <h1>Eat-A-Burger</h1>
-        </div>
-    </div>
+<div class="container">
+
     <div class="row">
-        {{!-- Empty div for alingnment--}}
-        <div class="col-sm-4"></div>
+
+        {{!-- empty column for alignment --}}
+        <div class="col-sm-2"></div>
+
+        {{!-- list of uneaten burgers --}}
         <div class="col-sm-4">
-            <ol>
+            <h2 class="headertext">Burger Prey</h2>
+            <ul>
                 {{#each burgers}}
-                <li>{{ burger_name }}</li>
+                {{#unless devoured}}
+                <li>{{id}}. {{burger_name}}
+                </li>
+                {{/unless}}
                 {{/each}}
-            </ol>
+            </ul>
         </div>
+
+        {{!-- div for "devour" buttons --}}
+        <div class="col-sm-2">
+            <ul class="button-list">
+                {{#each burgers}}
+                {{#unless devoured}}
+                <li>
+                    <button data-id="{{id}}" data-devoured="true" class="devour">Devour!</button>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        {{!-- list of eaten burgers --}}
+        <div class="col-sm-4">
+            <h2 class="headertext">RIP... These burgers were devoured</h2>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                <li>{{id}}. {{burger_name}}</li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+
+        {{!-- empty column for alignment --}}
+        <div class="col-sm-2"></div>
+
     </div>
+
+</div>
+
+<div class="container">
+
     <div class="row">
-        {{!-- Empty div for alignment --}}
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-            <input class="form-control form-control-lg" type="text" placeholder="Enter Burger Name...">
+
+        <div class="col-sm-12">
+
+            {{!-- burger image --}}
+            <img src="/assets/img/burger.jpg" alt="burger drawing" width="200" height="200">
+
+            {{!-- save new burger form --}}
+            <form class="create-form">
+
+                <div class="form-group">
+                    <textarea class="form-input" id="burger" name="name"></textarea>
+                    <br>
+                    <button type="submit">Save Burger</button>
+                </div>
+
+                <h5>Enter the name of a burger you'd like to add to your Burger Prey list.</h5>
+
+            </form>
+
         </div>
-        <div class="col-sm-4">
-            <button type="button" class="btn btn-primary submit-btn">Submit</button>
-        </div>
+
     </div>
+
 </div>
