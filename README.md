@@ -46,7 +46,7 @@ SO THAT I can keep track of my gluttony
 
 Run `npm start` and using your web browser to access http://localhost:3306.
 
-A demo of the application is available at:
+A demo of the application is available at: https://eat-a-burger-ca.herokuapp.com/
 
 ## License
 
