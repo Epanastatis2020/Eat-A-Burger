@@ -28,9 +28,7 @@ router.get("/", function (req, res) {
 
 //Creating a burger - the "post"
 router.post("/api/burgers", function (req, res) {
-  burgerModel.insertOne(["burger_name"], [req.body.burgerModel], function (
-    result
-  ) {
+  burgerModel.insertOne(["burger_name"], [req.body.burger], function (result) {
     // Send back the ID of the new burger
     res.json({ id: result.insertId });
   });
@@ -38,7 +36,7 @@ router.post("/api/burgers", function (req, res) {
 
 //Updating a burger - the "put"
 router.put("/api/burgers/:id", function (req, res) {
-  burgerModel.update("devoured", "id", req.params.id, function (result) {
+  burgerModel.updateOne("devoured", "id", req.params.id, function (result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
