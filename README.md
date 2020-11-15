@@ -44,7 +44,7 @@ SO THAT I can keep track of my gluttony
 
 ## Usage
 
-Run `npm start` and using your web browser to access http://localhost:8080.
+Run `npm start` and using your web browser to access http://localhost:3306.
 
 A demo of the application is available at:
 
