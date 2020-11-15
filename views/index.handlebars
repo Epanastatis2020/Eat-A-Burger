@@ -1,56 +1,5 @@
-<div class="container">
-
-    <div class="row">
-
-        {{!-- empty column for alignment --}}
-        <div class="col-sm-2"></div>
-
-        {{!-- list of uneaten burgers --}}
-        <div class="col-sm-4">
-            <h2 class="headertext">Burger Prey</h2>
-            <ul>
-                {{#each burgers}}
-                {{#unless devoured}}
-                <li>{{id}}. {{burger_name}}
-                </li>
-                {{/unless}}
-                {{/each}}
-            </ul>
-        </div>
-
-        {{!-- div for "devour" buttons --}}
-        <div class="col-sm-2">
-            <ul class="button-list">
-                {{#each burgers}}
-                {{#unless devoured}}
-                <li>
-                    <button data-id="{{id}}" data-devoured="true" class="devour">Devour!</button>
-                </li>
-                {{/unless}}
-                {{/each}}
-            </ul>
-        </div>
-
-        {{!-- list of eaten burgers --}}
-        <div class="col-sm-4">
-            <h2 class="headertext">RIP... These burgers were devoured</h2>
-            <ul>
-                {{#each burgers}}
-                {{#if devoured}}
-                <li>{{id}}. {{burger_name}}</li>
-                {{/if}}
-                {{/each}}
-            </ul>
-        </div>
-
-        {{!-- empty column for alignment --}}
-        <div class="col-sm-2"></div>
-
-    </div>
-
-</div>
-
-<div class="container">
+{{!-- header container with burger icon and save form --}}
+<div class="container text-center">
 
     <div class="row">
 
@@ -58,6 +7,8 @@
 
             {{!-- burger image --}}
             <img src="/assets/img/burger.jpg" alt="burger drawing" width="200" height="200">
+
+            <h3>Enter the name of a burger you'd like to add to your Burger Prey list.</h3>
 
             {{!-- save new burger form --}}
             <form class="save-form">
@@ -68,12 +19,45 @@
                     <button type="submit">Save Burger</button>
                 </div>
 
-                <h5>Enter the name of a burger you'd like to add to your Burger Prey list.</h5>
+
 
             </form>
 
         </div>
 
     </div>
+
+</div>
+
+<br>
+<br>
+
+{{!-- container for burgers added and burgers devoured --}}
+<div class="container">
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th scope="col">Burger Prey</th>
+                <th scope="col"></th>
+                <th scope="col">RIP... These burgers were devoured</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each burgers}}
+            <tr>
+                {{#unless devoured}}
+                <td>{{id}}. {{burger_name}}
+                <td>
+                    <button data-id="{{id}}" data-devoured="true" class="devour">Devour!</button>
+                </td>
+                {{/unless}}
+                {{#if devoured}}
+                <td>{{id}}. {{burger_name}}</td>
+                {{/if}}
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 
 </div>
