@@ -34,7 +34,7 @@ app.set("view engine", "handlebars");
 //------------------------------------------------
 // Importing routes and pointing server to them
 //------------------------------------------------
-const routes = require("./controllers/burger_controller.js");
+const routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
 

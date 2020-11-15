@@ -16,7 +16,7 @@ const burgerModel = require("../models/burger.js");
 
 //Rendering the index HTML - the "get"
 router.get("/", function (req, res) {
-  burger.selectAll(function (data) {
+  burgerModel.selectAll(function (data) {
     //hbsObject is the object we are sending to index.handlebars
     var hbsObject = {
       burgers: data,
@@ -28,7 +28,9 @@ router.get("/", function (req, res) {
 
 //Creating a burger - the "post"
 router.post("/api/burgers", function (req, res) {
-  burger.insertOne(["burger_name"], [req.body.burger], function (result) {
+  burgerModel.insertOne(["burger_name"], [req.body.burgerModel], function (
+    result
+  ) {
     // Send back the ID of the new burger
     res.json({ id: result.insertId });
   });
@@ -36,7 +38,7 @@ router.post("/api/burgers", function (req, res) {
 
 //Updating a burger - the "put"
 router.put("/api/burgers/:id", function (req, res) {
-  burger.update("devoured", "id", req.params.id, function (result) {
+  burgerModel.update("devoured", "id", req.params.id, function (result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
