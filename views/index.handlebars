@@ -38,6 +38,7 @@
     <table class="table text-center">
         <thead>
             <tr>
+                <th scope="col"></th>
                 <th scope="col">Burger Prey</th>
                 <th scope="col"></th>
                 <th scope="col">RIP... These burgers were devoured</th>
@@ -46,6 +47,7 @@
         <tbody>
             {{#each burgers}}
             <tr>
+                <th scope="row"></th>
                 {{#unless devoured}}
                 <td>{{id}}. {{burger_name}}
                 <td>
